@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj con HTML y CSS</title>
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+            height: 100vh;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes flechaSegundos {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes flechaMinutos {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes flechaHoras {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .relojContent {
+            border-radius: 50%;
+            background-color: white;
+            border: 20px solid black;
+            height: 500px;
+            width: 500px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 5px 10px 40px 2px black;
+            box-shadow: inset 5px 10px 40px 2px black;
+        }
+
+        .centerPoint {
+            height: 30px;
+            width: 30px;
+            background-color: black;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        .lineSeconds {
+            background-color: red;
+            width: 3px;
+            height: 180px;
+            transform-origin: bottom center;
+            position: absolute;
+            bottom: 50%;
+            animation: flechaSegundos 60s linear infinite;
+            border-radius: 5px 5px;
+            box-shadow: 5px 10px 6px 1px black;
+        }
+
+        .lineMinutes {
+            background-color: black;
+            width: 5px;
+            height: 130px;
+            transform-origin: bottom center;
+            position: absolute;
+            bottom: 50%;
+            animation: flechaMinutos 3600s linear infinite;
+            border-radius: 5px 5px;
+            box-shadow: 5px 10px 6px 1px black;
+        }
+
+        .lineHours {
+            background-color: black;
+            width: 8px;
+            height: 90px;
+            transform-origin: bottom center;
+            position: absolute;
+            bottom: 50%;
+            animation: flechaHoras 43200s linear infinite;
+            border-radius: 5px 5px;
+            box-shadow: 5px 10px 6px 1px black;
+        }
+
+        h1 {
+            position: absolute;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 700;
+            font-size: 20px;
+            margin: 0;
+        }
+
+        h1:nth-of-type(1) {
+            top: 2%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h1:nth-of-type(2) {
+            top: 10%;
+            left: 75%;
+        }
+
+        h1:nth-of-type(3) {
+            top: 26%;
+            left: 90%;
+        }
+
+        h1:nth-of-type(4) {
+            top: 50%;
+            right: 2%;
+            transform: translateY(-50%);
+        }
+
+        h1:nth-of-type(5) {
+            bottom: 26%;
+            right: 8%;
+        }
+
+        h1:nth-of-type(6) {
+            bottom: 10%;
+            right: 22%;
+        }
+
+        h1:nth-of-type(7) {
+            bottom: 2%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h1:nth-of-type(8) {
+            bottom: 10%;
+            left: 22%;
+        }
+
+        h1:nth-of-type(9) {
+            bottom: 26%;
+            left: 8%;
+        }
+
+        h1:nth-of-type(10) {
+            top: 50%;
+            left: 2%;
+            transform: translateY(-50%);
+        }
+
+        h1:nth-of-type(11) {
+            top: 26%;
+            left: 8%;
+        }
+
+        h1:nth-of-type(12) {
+            top: 10%;
+            left: 22%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="relojContent">
+        <div class="centerPoint"></div>
+        <div class="lineSeconds"></div>
+        <div class="lineMinutes"></div>
+        <div class="lineHours"></div>
+        <h1>12</h1>
+        <h1>1</h1>
+        <h1>2</h1>
+        <h1>3</h1>
+        <h1>4</h1>
+        <h1>5</h1>
+        <h1>6</h1>
+        <h1>7</h1>
+        <h1>8</h1>
+        <h1>9</h1>
+        <h1>10</h1>
+        <h1>11</h1>
+    </div>
+</body>
+
+</html>
