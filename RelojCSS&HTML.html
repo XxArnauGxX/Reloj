@@ -17,7 +17,8 @@
             padding: 0;
         }
 
-        @keyframes flechaSegundos {
+        /*
+        @keyframes rotacion {
             0% {
                 transform: rotate(0deg);
             }
@@ -26,27 +27,7 @@
                 transform: rotate(360deg);
             }
         }
-
-        @keyframes flechaMinutos {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes flechaHoras {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
+*/
         .relojContent {
             border-radius: 50%;
             background-color: white;
@@ -80,7 +61,7 @@
             transform-origin: bottom center;
             position: absolute;
             bottom: 50%;
-            animation: flechaSegundos 60s linear infinite;
+            animation: rotacion 60s linear infinite;
             border-radius: 5px 5px;
             box-shadow: 5px 10px 6px 1px black;
         }
@@ -92,7 +73,7 @@
             transform-origin: bottom center;
             position: absolute;
             bottom: 50%;
-            animation: flechaMinutos 3600s linear infinite;
+            animation: rotacion 3600s linear infinite;
             border-radius: 5px 5px;
             box-shadow: 5px 10px 6px 1px black;
         }
@@ -104,7 +85,7 @@
             transform-origin: bottom center;
             position: absolute;
             bottom: 50%;
-            animation: flechaHoras 43200s linear infinite;
+            animation: rotacion 43200s linear infinite;
             border-radius: 5px 5px;
             box-shadow: 5px 10px 6px 1px black;
         }
@@ -202,6 +183,24 @@
         <h1>10</h1>
         <h1>11</h1>
     </div>
+
+    <script>
+
+        function actualizarReloj() {
+            let ahora = new Date();
+            let horas = ahora.getHours() % 12;
+            let minutos = ahora.getMinutes();
+            let segundos = ahora.getSeconds();
+
+            document.querySelector(".lineHours").style.transform = `rotate(${(horas * 30) + (minutos / 2)}deg)`;
+            document.querySelector(".lineMinutes").style.transform = `rotate(${minutos * 6}deg)`;
+            document.querySelector(".lineSeconds").style.transform = `rotate(${segundos * 6}deg)`;
+        }
+
+        actualizarReloj();
+        setInterval(actualizarReloj, 1000);
+
+    </script>
 </body>
 
 </html>
